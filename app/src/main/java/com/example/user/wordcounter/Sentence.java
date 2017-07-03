@@ -1,0 +1,28 @@
+package com.example.user.wordcounter;
+
+/**
+ * Created by user on 03/07/2017.
+ */
+
+public class Sentence {
+
+    private String sentence;
+
+    public Sentence(String sentence) {
+        this.sentence = sentence;
+    }
+
+    public int countWords() {
+        int wordCount = 1;
+
+        for(int count = 0; count < sentence.length(); count++)
+        {
+            if(sentence.charAt(count)==' ')
+                wordCount++;
+        }
+
+        return wordCount;
+    }
+
+
+}
