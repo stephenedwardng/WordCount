@@ -24,5 +24,8 @@ public class Sentence {
         return wordCount;
     }
 
+    public String prettyCountWords() {
+        return String.format("There are %s words in your sentence", countWords());
+    }
 
 }

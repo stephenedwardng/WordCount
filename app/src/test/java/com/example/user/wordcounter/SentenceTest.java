@@ -29,6 +29,13 @@ public class SentenceTest {
 
     }
 
+    @Test
+    public void canPrettyCountWords() {
+
+        assertEquals("There are 7 words in your sentence", sentence.prettyCountWords());
+
+    }
+
 
 
 }
