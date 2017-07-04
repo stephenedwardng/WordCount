@@ -23,12 +23,13 @@ public class MainActivity extends AppCompatActivity {
         sentenceEditText = (EditText)findViewById(R.id.sentenceId);
         textView = (TextView)findViewById(R.id.textViewId);
         buttonSentence = (Button)findViewById(R.id.buttonId);
-        sentence = new Sentence();
     }
 
     public void onButtonClicked(View button) {
-        String sentenceLocal = sentenceEditText.getText().toString();
-        Log.d("EightBall", sentenceLocal);
+        String phrase = sentenceEditText.getText().toString();
+        sentence = new Sentence(phrase);
+
+        Log.d("EightBall", sentence.prettyCountWords());
 
         textView.setText(sentence.prettyCountWords());
     }
