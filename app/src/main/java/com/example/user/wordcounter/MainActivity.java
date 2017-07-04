@@ -1,5 +1,6 @@
 package com.example.user.wordcounter;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     EditText sentenceEditText;
-    TextView textView;
     Button buttonSentence;
     Sentence sentence;
 
@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         sentenceEditText = (EditText)findViewById(R.id.sentenceId);
-        textView = (TextView)findViewById(R.id.textViewId);
         buttonSentence = (Button)findViewById(R.id.buttonId);
     }
 
@@ -29,8 +28,11 @@ public class MainActivity extends AppCompatActivity {
         String phrase = sentenceEditText.getText().toString();
         sentence = new Sentence(phrase);
 
-        Log.d("EightBall", sentence.prettyCountWords());
+        Log.d("count", sentence.prettyCountWords());
 
-        textView.setText(sentence.prettyCountWords());
+        Intent intent = new Intent(this, ShowCountActivity.class);
+        intent.putExtra("countWords", sentence.prettyCountWords());
+        startActivity(intent);
+
     }
 }
